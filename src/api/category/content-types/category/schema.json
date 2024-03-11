@@ -25,6 +25,12 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "mappedBy": "categories"
+    },
+    "menuHeader": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::menu-header.menu-header",
+      "inversedBy": "subMenus"
     }
   }
 }

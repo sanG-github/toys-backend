@@ -4,18 +4,62 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "order"
+    "displayName": "order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "stripeId": {
-      "type": "string",
-      "required": false
+    "totalPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "promotionPrice": {
+      "type": "decimal",
+      "default": 0
+    },
+    "shippingFee": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "subTotal": {
+      "type": "decimal",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "ordered",
+        "completed"
+      ],
+      "default": "pending"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "order"
+    },
+    "promotion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promotion.promotion",
+      "inversedBy": "order"
     },
     "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "order"
+    },
+    "note": {
+      "type": "text"
+    },
+    "products_log": {
       "type": "json"
     }
   }

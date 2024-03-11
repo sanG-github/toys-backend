@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_headers",
+  "info": {
+    "singularName": "menu-header",
+    "pluralName": "menu-headers",
+    "displayName": "menu-header",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "subMenus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "menuHeader"
+    }
+  }
+}

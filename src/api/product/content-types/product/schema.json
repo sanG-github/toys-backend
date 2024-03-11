@@ -55,6 +55,18 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "promotion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::promotion.promotion",
+      "inversedBy": "products"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "products"
     }
   }
 }
