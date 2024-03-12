@@ -38,29 +38,29 @@
       ],
       "default": "pending"
     },
-    "customer": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::customer.customer",
-      "inversedBy": "order"
-    },
     "promotion": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::promotion.promotion",
       "inversedBy": "order"
     },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "order"
-    },
     "note": {
       "type": "text"
     },
     "products_log": {
       "type": "json"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "orders"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "orders"
     }
   }
 }
