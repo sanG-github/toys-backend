@@ -31,6 +31,12 @@
       "relation": "manyToOne",
       "target": "api::menu-header.menu-header",
       "inversedBy": "subMenus"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
     }
   }
 }
