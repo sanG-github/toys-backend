@@ -30,7 +30,13 @@ module.exports = createCoreController(
           });
 
           const totalProducts = await strapi.db.query("api::product.product").count({
-            category: category.id,
+            where: {
+              categories: {
+                id: {
+                  $eq: category.id
+                }
+              }
+            },
           });
 
           category.attributes.highlightProducts = products;
