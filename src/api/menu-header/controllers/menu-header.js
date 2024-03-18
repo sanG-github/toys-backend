@@ -13,7 +13,7 @@ module.exports = createCoreController(
       let menuHeaders = await strapi.db.query("api::menu-header.menu-header")
         .findMany({
           populate: { subMenus: true },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: 'asc' },
         })
 
       // Custom logic to count total products for each sub-menus
@@ -41,6 +41,6 @@ module.exports = createCoreController(
         })
       );
 
-      return menuHeaders;
+      return { data: menuHeaders };
     },
   }));
